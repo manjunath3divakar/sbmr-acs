@@ -92,9 +92,9 @@ SBMR checklist
 |                          | M3_JTAG_2    | Level M3                               | No (Self        | Manual steps       | - M3_JTAG_2_Production_JTAG_Disable_Declaration* (conditional)                     |
 |                          |              |                                        | Declaration)    | unavailable        |                                                                                    |
 +--------------------------+--------------+----------------------------------------+-----------------+--------------------+------------------------------------------------------------------------------------+
-| Side-Band                | M3_SB_1      | Level M3                               | No (Self        | Manual steps       | - M3_SB_1_PMCI_Side_Band_Interface_Declaration*                                    |
-|                          |              |                                        | Declaration)    | available          |                                                                                    |
-|                          |              |                                        |                 |                    | Manual test: `Side_Band_Test_Case_001`_                                            |
+| Side-Band                | M3_SB_1      | Level M3                               | Yes             | OOB (derived)      | - M3_SB_1_PMCI_Side_Band_Interface_Declaration                                     |
+|                          |              |                                        |                 |                    |                                                                                    |
+|                          |              |                                        |                 |                    | Derived from `M3_SB_2`, `M3_SB_3`, and `M3_SB_4`; see `Side_Band_Test_Case_001`_   |
 +                          +--------------+----------------------------------------+-----------------+--------------------+------------------------------------------------------------------------------------+
 |                          | M3_SB_2      | Level M3                               | Partial (Self   | OpenBMC SSH        | - M3_SB_2_PLDM_Platform_Functions                                                  |
 |                          |              |                                        | Declaration)    |                    |                                                                                    |

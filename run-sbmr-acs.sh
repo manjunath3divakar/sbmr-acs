@@ -124,7 +124,29 @@ case "$INTERFACE" in
     echo "===== Running sbmr-acs-oob test suite at level $SELECTED_LEVEL ====="
     robot --argumentfile config --argumentfile "$ARGFILE" $DEBUG \
       --name "SBMR-ACS OOB" . | tee "$CONSOLE_LOG"
-    exit "${PIPESTATUS[0]}"
+    ROBOT_RC=${PIPESTATUS[0]}
+    if [ ! -f "$OUTPUT_DIR/output.xml" ]; then
+      exit "$ROBOT_RC"
+    fi
+
+    # Only derive M3_SB_1 when the selected level includes M3.
+    case "$SELECTED_LEVEL" in
+      M3|M4|FR)
+        python3 bin/derive_m3_sb_1.py \
+          "$OUTPUT_DIR/output.xml" || exit 1
+        ;;
+    esac
+    # Regenerate HTML reports from the updated XML.
+    rebot \
+      --output NONE \
+      --log "$OUTPUT_DIR/log.html" \
+      --report "$OUTPUT_DIR/report.html" \
+      "$OUTPUT_DIR/output.xml"
+    REBOT_RC=$?
+    if [ "$ROBOT_RC" -gt 250 ]; then
+      exit "$ROBOT_RC"
+    fi
+    exit "$REBOT_RC"
     ;;
   'linux')
     echo "===== Running sbmr-acs-linux test suite at level $SELECTED_LEVEL ====="

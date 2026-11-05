@@ -17,7 +17,7 @@ For non-OpenBMC implementations, this document serves as a reference example. Su
 interfaces to validate the same architectural properties, protocol layering, and side-band behaviors described here.
 
 # Test Sections
-- [Side_Band_Test_Case_001 (M3_SB_1)](#side_band_test_case_001)
+- [Side_Band_Test_Case_001 (Derived M3_SB_1)](#side_band_test_case_001)
 - [MCTP_Test_Case_001 (M3_SB_9, M3_IO_2)](#mctp_test_case_001)
 - [MCTP_Test_Case_002 (M3_SB_3, M4_IO_1)](#mctp_test_case_002)
 - [MCTP_Test_Case_003 (M4_SB_1, M4_IO_3)](#mctp_test_case_003)
@@ -31,7 +31,7 @@ interfaces to validate the same architectural properties, protocol layering, and
 ## Side_Band_Test_Case_001
 
 #### Objective
-SBMR standardizes the side-band interface based on the DMTF PMCI workgroup standards which define specifications for primary intercommunication interfaces and data models between BMC and SatMC.
+Summarize the derived result for `M3_SB_1` from the supporting SBMR side-band requirements.
 
 **Verified SBMR Rule ID**
 - M3_SB_1
@@ -45,8 +45,8 @@ SBMR standardizes the side-band interface based on the DMTF PMCI workgroup stand
   </tr>
   <tr>
     <td>1</td>
-    <td>Verify all required side-band test cases are compliant: <b>MCTP_Test_Case_001</b>, <b>MCTP_Test_Case_002</b>, <b>MCTP_Test_Case_003</b>, <b>PLDM_Test_Case_001</b>, <b>PLDM_Test_Case_002</b>.</td>
-    <td>Compliant if all listed test cases are compliant; otherwise non-compliant.</td>
+    <td>Verify the supporting tests for <b>M3_SB_2</b>, <b>M3_SB_3</b>, and <b>M3_SB_4</b> are all compliant: <b>PLDM_Test_Case_001</b>, <b>MCTP_Test_Case_002</b>, and <b>PLDM_Test_Case_002</b>.</td>
+    <td><b>M3_SB_1</b> passes only when all listed tests pass. If any listed test fails, <b>M3_SB_1</b> fails. If any listed test is skipped or not run, <b>M3_SB_1</b> is skipped.</td>
   </tr>
 </table>
 

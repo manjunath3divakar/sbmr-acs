@@ -71,10 +71,9 @@ Declaration For M2_RAS_2 Redfish Platform Error Record Support
 
 
 Declaration For M3_SB_1 PMCI Side-Band Interface
-    [Documentation]  Declaration for PMCI-based BMC-to-SatMC side-band interface.
+    [Documentation]  Result derived from M3_SB_2, M3_SB_3 and M3_SB_4.
     [Tags]  M3_SB_1_PMCI_Side_Band_Interface_Declaration
-    [Template]  Verify Declaration
-    ${M3_SB_1_PMCI_SIDE_BAND_INTERFACE_SUPPORT}  M3_SB_1  PMCI-based BMC-to-SatMC side-band interface
+    Skip  Result is calculated after the supporting tests complete.
 
 
 Declaration For M3_SB_5 SPDM Security Protocol
